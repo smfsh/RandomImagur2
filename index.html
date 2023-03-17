@@ -3034,7 +3034,12 @@ if (typeof JSON !== 'object') {
       $('body').append($img);
       $img.load(function(e) {
         _this.totalCounter++;
-        if (($img.width() === 161 && $img.height() === 81) || ($img.width() < _this.minWidth) || ($img.width() < 25 || $img.height() < 25)) {
+        if (($img.width() === 161 && $img.height() === 81) || 
+            ($img.width() < _this.minWidth) || 
+            ($img.width() < 25 || $img.height() < 25) ||
+            ($img.height() > $img.width * 3)
+           ) 
+        {
           if ($img.width() === 161 && $img.height() === 81) {
             _this.nonExistantCounter++;
           }
@@ -3371,7 +3376,7 @@ if (typeof JSON !== 'object') {
     });
     window.RIW.App.render();
     _results = [];
-    for (i = _i = 0; _i <= 10; i = ++_i) {
+    for (i = _i = 0; _i <= 30; i = ++_i) {
       _results.push(window.RIW.App.collection.fetch());
     }
     return _results;
